@@ -85,7 +85,7 @@
                                                 <span t-esc="line.discount or 0" t-options='{"widget": "monetary", "display_currency": o.currency_id}' style="font-weight: bold;"/>
                                             </td>
                                             <td class="text-center" style="font-weight: bold;">
-                                                <span t-esc="line.discount_fixed"  t-options='{"widget": "monetary", "display_currency": o.currency_id}' style="font-weight: bold;"/>
+                                                <span t-esc="line.discount_fixed or 0"  t-options='{"widget": "monetary", "display_currency": o.currency_id}' style="font-weight: bold;"/>
                                             </td>
                                             <td class="text-center" style="font-weight: bold;">
                                                 <span t-esc="line.price_subtotal or ''" t-options='{"widget": "monetary", "display_currency": o.currency_id}' style="font-weight: bold;"/>
@@ -115,7 +115,7 @@
                                         <tr>
                                             <td><strong>Total Discount</strong></td>
                                             <td class="text-end">
-                                                <span t-esc="sum(line.discount_fixed for line in o.invoice_line_ids)" t-options='{"widget": "monetary", "display_currency": o.currency_id}' style="font-weight: bold; margin-right: 20px;"/>
+                                                <span t-esc="sum(line.discount_fixed for line in o.invoice_line_ids) or 0" t-options='{"widget": "monetary", "display_currency": o.currency_id}' style="font-weight: bold; margin-right: 20px;"/>
                                             </td>
                                         </tr>
                                         <!-- Ppn -->
